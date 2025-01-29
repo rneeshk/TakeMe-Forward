@@ -1,0 +1,31 @@
+In JavaScript, the `sort()` function, which is used to sort elements in an array, typically uses an algorithm called **Timsort**.
+
+### Timsort:
+- **Timsort** is a hybrid sorting algorithm derived from **Merge Sort** and **Insertion Sort**. It is optimized for real-world data and performs very well on data that is partially ordered.
+- It was designed by **Tim Peters** and is used in Python's built-in sort function as well.
+- **Timsort** divides the array into smaller blocks (called "runs") and sorts them using **Insertion Sort**. Then it merges these runs using **Merge Sort**. This approach leads to better performance when data is already partially sorted.
+
+### Behavior of `sort()` in JavaScript:
+- **Time Complexity**: On average, the time complexity of `sort()` is **O(n log n)**, where `n` is the number of elements in the array.
+- **Stability**: The `sort()` function is stable in modern JavaScript engines (such as V8, which is used in Chrome and Node.js). This means that if two elements have the same value, their order will be preserved in the sorted array.
+- **Space Complexity**: The space complexity depends on the implementation of Timsort, but it is generally **O(n)** for the worst-case scenario.
+
+### Example:
+```javascript
+let arr = [5, 3, 8, 1, 2];
+arr.sort(); // Sorts the array in ascending order
+console.log(arr); // Output: [1, 2, 3, 5, 8]
+```
+
+By default, the `sort()` method converts elements to strings and compares them lexicographically (character by character) if no comparator function is provided. To sort numbers in numerical order, you should pass a custom comparator function:
+
+### Sorting Numbers Numerically:
+```javascript
+let arr = [5, 3, 8, 1, 2];
+arr.sort((a, b) => a - b); // Sorts in ascending numerical order
+console.log(arr); // Output: [1, 2, 3, 5, 8]
+```
+
+### Summary:
+- The JavaScript `sort()` function typically uses **Timsort**, which combines **Merge Sort** and **Insertion Sort** for optimal performance on real-world data.
+- It has an average time complexity of **O(n log n)** and is stable in modern implementations.
